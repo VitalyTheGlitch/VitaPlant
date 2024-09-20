@@ -1,0 +1,25 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<div id="content">
+    <div class="inner clearfix">
+        <div id="workarea" class="full clearfix">
+            <h3>Каталог товаров</h3>
+            <div id="catalog-section-list" class="panel">
+                <div class="elements clearfix">
+                    {% for section in menu %}
+                    <div class="element clearfix">
+                        <a href="{{section.url}}">
+                            <div class="picture" style="background-image: url('{{section.imageURL}}');"></div>
+                            <div class="title"> <span>{{section.name}}</span> </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <hr>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

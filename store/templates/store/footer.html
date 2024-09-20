@@ -1,0 +1,27 @@
+{% load static %}
+
+
+<div id="footer">
+    <div class="inner clearfix">
+        <p><b>Для уточнения цены на товар и наличия товара обратитесь к менеджеру</b></p>
+        <div class="left"> Питомник растений Вита Плант
+            <br>Все права защищены. </div>
+        <div class="center"> г. Саратов, Вольский тракт, 4б
+            <br> <i class="fa fa-map-marker"></i> <a href="{% url 'store:contacts' %}">карта проезда</a> </div>
+        <script>
+        function ScrollUp() {
+            var t, s;
+            s = document.body.scrollTop || window.pageYOffset;
+            t = setInterval(function() { if (s > 0) window.scroll(0, s -= 5);
+                else clearInterval(t) }, 5);
+        }
+        </script>
+        <a href="#top" onclick="ScrollUp();return!1;" style="display:block;position:fixed;
+            bottom:30px;right:30px;
+            opacity:0.7;
+            background:#ddd;
+            -webkit-border-radius:15px;
+            -moz-border-radius:15px;
+            border-radius:100px;"><img src="{% static 'include/up.png' %}" style="width: 64px; height: 64px;"></a>
+    </div>
+</div>

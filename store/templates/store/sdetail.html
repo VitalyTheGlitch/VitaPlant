@@ -1,0 +1,58 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block title %}{{product.name}}{% endblock %}
+{% block content %}
+<div id="content">
+    <div class="inner clearfix">
+        <div id="sidebar">
+            <ul id="menu" class="left sm sm-theme sm-vertical">
+                {% for section in menu %}
+                {% if section.name == product.category.name %}
+                <li class="selected"> <a href="../{{section.url}}">{{section.name}}</a> </li>
+                {% else %}
+                <li> <a href="../{{section.url}}">{{section.name}}</a> </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div id="workarea" class="partial clearfix">
+            <div id="breadcrumbs" class="default"> <span>
+                    <a href="{% url 'store:store' %}" title="Главная">Главная</a>
+                </span> <span>>
+                    <a href="{% url 'store:services' %}" title="Каталог товаров">Каталог услуг</a>
+                </span> <span>> {{product.category.name}}</span> </div>
+            <h1 class="title">{{product.name}}</h1>
+            <div id="catalog" class="default">
+                <div id="catalog-element" class="default">
+                    <div class="card clearfix">
+                        <div class="col-left">
+                            <div class="swiper-container pictures">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <a class="fancybox" href="{{product.imageURL}}" rel="group-502"> <img src="{{product.imageURL}}" alt="{{product.name}}" title="{{product.name}}" style="width: 420px; height: 315px;"> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            <div class="info">
+                                <div class="price">
+                                    <div class="actual" style="margin-top: 15px;"> <span class="value" style="font-size: 185%; font-weight: 500;">{{product.price}}</span> <span class="currency" style="font-size: 185%; font-weight: 500;">руб.</span> </div>
+                                </div>
+                                <div class="detail-text clearfix">
+                                    <h2>Описание</h2>{{product.description}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-text clearfix">
+                        <h2>Контакты</h2><strong>{{product.contact}}</strong>
+                    </div>
+                    <br>
+                    <div class="back-link"> <a href="../"><img src="../static/include/back.png" style="width: 32px; height: 32px; margin-right: 5px;">Назад в раздел</a> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

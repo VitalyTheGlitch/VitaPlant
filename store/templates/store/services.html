@@ -1,0 +1,41 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block title %}Каталог услуг{% endblock %}
+{% block content %}
+<div id="content">
+    <div class="inner clearfix">
+        <div id="sidebar">
+            <ul id="menu" class="left sm sm-theme sm-vertical">
+                {% for section in menu %}
+                <li> <a href="../s/{{section.url}}">{{section.name}}</a> </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div id="workarea" class="partial clearfix">
+            <div id="breadcrumbs" class="default"> <span>
+                    <a href="{% url 'store:store' %}" title="Главная">Главная</a>
+                </span> <span>
+                    > Каталог услуг </span> </div>
+            <h1 class="title">Каталог услуг</h1>
+            <div id="catalog" class="default">
+                <div id="catalog-section-list" class="default">
+                    <div class="elements clearfix">
+                        {% for section in menu %}
+                        <div class="element clearfix">
+                            <div class="picture" style="float: left;">
+                                <a href="../s/{{section.url}}"> <img src="{{section.imageURL}}" width="200" height="150" /> </a>
+                            </div>
+                            <div class="overflow" style="float: left;">
+                                <div class="title" style="float: left;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="../s/{{section.url}}">{{section.name}}</a> </div>
+                                <div class="description">&nbsp;&nbsp;&nbsp;&nbsp;{{section.description}}</div>
+                            </div>
+                        </div>
+                        <hr>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

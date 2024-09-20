@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no, email=no, address=no, date=no" />
+    <title>{% block title %}Интернет-магазин{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../../static/files/js/css/core.css@15928565173963.css" type="text/css" rel="stylesheet" />
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <style type="text/css">
+    .bx-composite-btn {
+        background: url(../../static/files/images/main/composite/sprite-1x.png) no-repeat right 0 #e94524;
+        border-radius: 15px;
+        color: #fff !important;
+        display: inline-block;
+        line-height: 30px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        font-size: 12px !important;
+        font-weight: bold !important;
+        height: 31px !important;
+        padding: 0 42px 0 17px !important;
+        vertical-align: middle !important;
+        text-decoration: none !important;
+    }
+
+    @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+        .bx-composite-btn {
+            background-image: url(../../static/files/images/main/composite/sprite-2x.png);
+            background-size: 42px 124px;
+        }
+    }
+
+    .bx-composite-btn-fixed {
+        position: absolute;
+        top: -45px;
+        right: 15px;
+        z-index: 10;
+    }
+
+    .bx-btn-white {
+        background-position: right 0;
+        color: #fff !important;
+    }
+
+    .bx-btn-black {
+        background-position: right -31px;
+        color: #000 !important;
+    }
+
+    .bx-btn-red {
+        background-position: right -62px;
+        color: #555 !important;
+    }
+
+    .bx-btn-grey {
+        background-position: right -93px;
+        color: #657b89 !important;
+    }
+
+    .bx-btn-border {
+        border: 1px solid #d4d4d4;
+        height: 29px !important;
+        line-height: 29px !important;
+    }
+
+    .bx-composite-loading {
+        display: block;
+        width: 40px;
+        height: 40px;
+        background: url(../../static/files/images/main/composite/loading.gif);
+    }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,latin-ext" type="text/css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    <link href="../../static/files/cache/css/page_71d21974979b5dd6b2dd7bd9d81aeb58/page_71d21974979b5dd6b2dd7bd9d81aeb58_v1.css@16078520976554.css" type="text/css" rel="stylesheet" />
+    <link href="../../static/files/cache/css/template_cdd8cc0ba4ddc9cb456de8e4602cc1ac/template_cdd8cc0ba4ddc9cb456de8e4602cc1ac_v1.css@160785209763621.css" type="text/css" data-template-style="true" rel="stylesheet" />
+    <script type="text/javascript" src="../../static/files/js/core.min.js@1607851739252095"></script>
+    <script>
+    BX.setJSList(['/../../static/files/js/core_ajax.js', '/../../static/files/js/core_promise.js', '/../../static/files/js/main/polyfill/promise/js/promise.js', '/../../static/files/js/main/loadext/loadext.js', '/../../static/files/js/main/loadext/extension.js', '/../../static/files/js/main/polyfill/promise/js/promise.js', '/../../static/files/js/main/polyfill/find/js/find.js', '/../../static/files/js/main/polyfill/includes/js/includes.js', '/../../static/files/js/main/polyfill/matches/js/matches.js', '/../../static/files/js/ui/polyfill/closest/js/closest.js', '/../../static/files/js/main/polyfill/fill/main.polyfill.fill.js', '/../../static/files/js/main/polyfill/find/js/find.js', '/../../static/files/js/main/polyfill/matches/js/matches.js', '/../../static/files/js/main/polyfill/core/dist/polyfill.bundle.js', '/../../static/files/js/core.js', '/../../static/files/js/main/polyfill/intersectionobserver/js/intersectionobserver.js', '/../../static/files/js/main/lazyload/dist/lazyload.bundle.js', '/../../static/files/js/main/polyfill/core/dist/polyfill.bundle.js', '/../../static/files/js/main/parambag/dist/parambag.bundle.js']);
+    BX.setCSSList(['/../../static/files/js/css/core.css', '/../../static/files/js/main/lazyload/dist/lazyload.bundle.css', '/../../static/files/js/main/parambag/dist/parambag.bundle.css']);
+    </script>
+    <script type="text/javascript" src="../../static/files/cache/js/kernel_main/kernel_main_v1.js@160785209510092"></script>
+    <script type="text/javascript" src="../../static/files/cache/js/kernel_main_polyfill_customevent/kernel_main_polyfill_customevent_v1.js@16078520951051"></script>
+    <script type="text/javascript" src="../../static/files/js/ui/dexie/dist/dexie.../../static/files.bundle.min.js@160785174860291"></script>
+    <script type="text/javascript" src="../../static/files/js/core_ls.min.js@15928565167365"></script>
+    <script type="text/javascript" src="../../static/files/js/core_frame_cache.min.js@160785173910532"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+    BX.setJSList(['/../../static/files/js/core_fx.js', '/../../static/files/js/main/polyfill/customevent/main.polyfill.customevent.js', '/../../static/files/templates/site/assets/fancybox/jquery.fancybox.js', '/../../static/files/templates/site/assets/inputmask/jquery.inputmask.js', '/../../static/files/templates/site/assets/owl-carousel/jquery.owl-carousel.js', '/../../static/files/templates/site/assets/swiper/jquery.swiper.js', '/../../static/files/templates/site/assets/scrollup/jquery.scrollup.js', '/../../static/files/templates/site/assets/smartmenus/jquery.smartmenus.js', '/../../static/files/templates/site/script.js', '/../../static/files/templates/site/components/../../static/files/menu/top/script.js', '/../../static/files/components/kolibri/form.universal/script.js', '/../../static/files/templates/site/custom.js']);
+    </script>
+    <script type="text/javascript">
+    BX.setCSSList(['/../../static/files/templates/site/components/../../static/files/catalog.section.list/panel/style.css', '/../../static/files/templates/site/components/../../static/files/catalog.top/table/style.css', '/../../static/files/templates/site/components/../../static/files/system.pagenavigation/.default/style.css', '/../../static/files/templates/site/components/../../static/files/news.list/info_line/style.css', '/../../static/files/templates/site/assets/fancybox/jquery.fancybox.css', '/../../static/files/templates/site/assets/owl-carousel/jquery.owl-carousel.css', '/../../static/files/templates/site/assets/owl-carousel/jquery.owl-carousel.theme.css', '/../../static/files/templates/site/assets/swiper/jquery.swiper.css', '/../../static/files/templates/site/assets/scrollup/jquery.scrollup.css', '/../../static/files/templates/site/assets/smartmenus/jquery.smartmenus.css', '/../../static/files/templates/site/assets/smartmenus/jquery.smartmenus.theme.css', '/../../static/files/templates/site/components/../../static/files/menu/top/style.css', '/../../static/files/templates/site/components/../../static/files/catalog.top/slider/style.css', '/../../static/files/components/kolibri/form.universal/style.css', '/../../static/files/templates/site/styles.css', '/../../static/files/templates/site/template_styles.css', '/../../static/files/templates/site/adaptive.css', '/../../static/files/templates/site/themes/blue/colors.css', '/../../static/files/templates/site/custom.css']);
+    </script>
+    <script type="text/javascript" src="../../static/files/cache/js/template_4352d5d49c304393d552da9c7496438e/template_4352d5d49c304393d552da9c7496438e_v1.js@1607852096661265"></script>
+</head>
+
+<body>
+    <div>
+        <div id="wrapper">
+        	{% include 'store/header.html' %}
+            {% block content %}
+            {% endblock %}
+            {% include 'store/footer.html' %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>

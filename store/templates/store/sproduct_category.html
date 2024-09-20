@@ -1,0 +1,55 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block title %}{{category}}{% endblock %}
+{% block content %}
+<div id="content">
+    <div class="inner clearfix">
+        <div id="sidebar">
+            <ul id="menu" class="left sm sm-theme sm-vertical">
+                {% for section in menu %}
+                {% if section.name == category %}
+                <li class="selected"> <a href="../{{section.url}}">{{section.name}}</a> </li>
+                {% else %}
+                <li> <a href="../{{section.url}}">{{section.name}}</a> </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div id="workarea" class="partial clearfix">
+            <div id="breadcrumbs" class="default"> <span>
+                    <a href="{% url 'store:store' %}" title="Главная">Главная</a>
+                </span> <span>>
+                    <a href="{% url 'store:products' %}" title="Каталог товаров"> Каталог услуг</a>
+                </span> <span>> {{category}}</span> </div>
+            <h1 class="title">{{category}}</h1>
+            <div id="catalog" class="default">
+                <div id="catalog-section-list" class="subsections"> </div>
+                <div class="options clearfix">
+                    <div class="items-count">
+                        <label>Товаров:</label> <strong>{{count}}</strong> </div>
+                    <div id="catalog-section" class="table">
+                        <div class="elements clearfix">
+                            {% for obj in object_list %}
+                            <div class="element clearfix" style="width: 25%; display: block; box-sizing: border-box; float: left; width: 200px; height: 350px;">
+                                <div style="line-height: 1.2; position: relative; height: 98.75%; margin: 2px; padding: 20px; transition: box-shadow .15s ease-in-out; width: 200px; height: 350px; box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+                                    <div class="picture">
+                                        <a href="{% url 'store:sdetail' obj.id %}"> <img src="../../static{{obj.imageURL}}" style="width: 165px; height: 125px;" /> </a>
+                                    </div>
+                                    <div class="title" style="font: 15px/20px 'Roboto', sans-serif;"> <a href="{% url 'store:sdetail' obj.id %}" style="font-weight: 500;">{{obj.name}}</a> </div>
+                                    <div class="preview-text">
+                                        <p style="font: 15px/20px 'Roboto', sans-serif; word-break: break-all;">{{obj.description}}</p>
+                                    </div>
+                                    <div class="price" style="margin-top: 15px;">
+                                        <div class="actual"> <span class="value" style="font: 15px/20px 'Roboto', sans-serif; font-weight: 500; font-size: 130%;">{{obj.price}}</span> <span class="currency" style="font: 15px/20px 'Roboto', sans-serif; font-weight: 500; font-size: 130%;">руб.</span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block title %}Прайс-лист{% endblock %}
+{% block content %}
+<div id="content">
+    <div class="inner clearfix">
+        <div id="workarea" class="full clearfix">
+            <div id="breadcrumbs" class="default"> <span>
+                    <a href="{% url 'store:store' %}" title="Главная">Главная</a>
+                </span> <span>> Прайс-лист</span> </div>
+            <h1 class="title">Прайс-лист</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th> Наименование </th>
+                        <th> Цена(ед.) </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for obj in price %}
+                    <tr>
+                        <td> {{obj.name}} </td>
+                        <td> {{obj.price}}р. </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

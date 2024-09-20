@@ -1,0 +1,4 @@
+Django
+django-grappelli
+pillow
+psycopg2

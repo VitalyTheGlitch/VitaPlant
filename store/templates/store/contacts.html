@@ -1,0 +1,74 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block title %}Контакты{% endblock %}
+{% block content %}
+<div id="content">
+    <div class="inner clearfix">
+        <div id="workarea" class="full clearfix">
+            <div id="breadcrumbs" class="default"> <span>
+                    <a href="{% url 'store:store' %}" title="Главная">Главная</a>
+                </span> <span>>
+                    Контакты </span> </div>
+            <h1 class="title">Контакты</h1>
+            <div class="clearfix">
+                <div class="col-left">
+                    <h4> Питомник растений Вита Плант </h4>
+                    <p> <b>Адрес</b>
+                        <br> г. Саратов, Вольский тракт, 4б </p>
+                    <p> <b>Телефоны</b>
+                        <br> (8452)40-01-51
+                        <br> 8-903-384-49-84 </p>
+                    <p> <b>E-mail</b>
+                        <br> <a href="vitaplantsar@mail.ru">vitaplantsar@mail.ru</a> </p>
+                    <p> <b>Время работы:</b>
+                        <br> C апреля по ноябрь ежедневно с 9.00 до 18.00 </p>
+                </div>
+                <div class="col-right">
+                    <div class="bx-yandex-view-layout">
+                        <div class="bx-yandex-view-map">
+                            <div id="map" style="width: 600px; height: 400px"></div>
+                            <script type="text/javascript">
+                            ymaps.ready(init);
+
+                            function init() {
+                                var myMap = new ymaps.Map("map", {
+                                    center: [51.632122, 45.982523],
+                                    zoom: 12,
+                                    controls: [
+
+                                        'zoomControl',
+                                        'rulerControl',
+                                        'routeButtonControl',
+                                        'trafficControl',
+                                        'typeSelector',
+                                        'fullscreenControl',
+
+                                        new ymaps.control.SearchControl({
+                                            options: {
+                                                size: 'large',
+                                                provider: 'yandex#search'
+                                            }
+                                        })
+
+                                    ]
+                                });
+
+                                var myPlacemark = new ymaps.Placemark([51.632122, 45.982523], {
+                                    hintContent: 'C апреля по ноябрь ежедневно с 9.00 до 18.00',
+                                    balloonContent: 'ВитаПлант'
+                                });
+
+                                myMap.geoObjects.add(myPlacemark);
+
+                            }
+
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+{% endblock %}
